@@ -9,6 +9,8 @@ headers = {
         }
 
 
+# User can search for recipes which utilize the ingredients they enter in. 
+# Returns the Title, ID, image, and used/missing ingredients from the recipe.
 def search_by_ingredient():
     url = "https://webknox-recipes.p.rapidapi.com/recipes/findByIngredients"
     user_input = input("Please enter the ingredients you have, separated by a comma.\n")
@@ -18,6 +20,7 @@ def search_by_ingredient():
     return parse_ingredient(dummy)
 
 
+#Parses the search results of a call to search_by_ingredient
 def parse_ingredient(file_name):
     new_dict = {}
     my_list = []
@@ -38,14 +41,16 @@ def parse_ingredient(file_name):
     return my_list
 
 
+#call the API to obtain the recipe link given a food id
 def my_recipe_info(food_id):
     url = "https://webknox-recipes.p.rapidapi.com/recipes/"+food_id+"/information"
     #response = requests.request("GET", url, headers=headers)
     return parse_recipe_info(recipe_info)
 
 
+#Parses the search results of a call to my_recipe_info
 def parse_recipe_info(file_name):
-    return file_name[52]
+    return file_name["sourceUrl"]
 
 
 if __name__ == '__main__':
