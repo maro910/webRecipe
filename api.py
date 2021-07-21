@@ -2,6 +2,7 @@ import requests
 from dummy import dummy
 import json
 from recipe_info import recipe_info
+from searchRecipe import var
 
 headers = {
         'x-rapidapi-key': "b28cffec83msh01f2949c69f1af9p16ee98jsnb1cc8145b207",
@@ -53,6 +54,30 @@ def parse_recipe_info(file_name):
     return file_name["sourceUrl"]
 
 
+# User can search for recipes by keyword
+# Returns the Name, Cooking time, servings, link, and image.
+def search_by_recipe():
+	url = "https://webknox-recipes.p.rapidapi.com/recipes/search"
+	user_input = input("Please enter what you would like to make in order to find recipes\n")
+	querystring = {"query":user_input,"offset":"0","number":"10","type":"main course","cuisine":"italian","diet":"vegetarian","intolerances":"egg, gluten","excludeIngredients":"coconut"}
+	response = requests.request("GET", url, headers=headers, params=querystring)
+	return parse_recipe_search(var)
+
+
+#Parses the search results of a call to search_by_recipe
+def parse_recipe_search(file_name):
+	new_dict = {}
+	my_list = []
+	for recipe in file_name['results']:
+		new_dict['Name'] = recipe['title']
+		new_dict['Ready in'] = recipe['readyInMinutes']
+		new_dict["Servings"] = recipe['servings']
+		new_dict['Link'] = recipe['sourceUrl']
+		new_dict['Image'] = recipe['image']
+		my_list.append(new_dict.copy())
+	return my_list
+		
+
 if __name__ == '__main__':
-    print(my_recipe_info("6262643"))
-    
+    print(search_by_recipe())
+	
