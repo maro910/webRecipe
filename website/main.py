@@ -5,6 +5,12 @@ import requests
 import api
 
 
+#TODO
+# more testing, what does our code cover?
+# practice presentation
+# make images consistent height - Mario 
+
+
 
 # this gets the name of the file so Flask knows it's name 
 app = Flask(__name__) 
@@ -53,15 +59,14 @@ def ingredient():
         #If no results show up
         if results == []:
             return "There were no results for the ingredients you chose. Please ensure that your spelling/format is correct and try again"
-        
-        df = pd.DataFrame(results)
-        finalDf = df.to_string()
-        
+
         #Renders final html and passes in data we called for
-        return render_template('ingResults.html', usr=finalDf)
-    
+        return render_template('ingResults.html', results=results)
+
+
     #If user accesses this page, render ingredient page
     return render_template('ingredient.html')
+
 
 # Recipe Page
 @app.route("/recipe", methods=["POST", "GET"])
@@ -80,12 +85,16 @@ def recipe():
         # If no results show up
         if results == []:
             return "There were no results for the keywords you entered. Please ensure that your spelling/format is correct and try again"
-        
+                
         #Renders final html and passes in data we called for
         return render_template('recResults.html', results=results)
     
     #If user accesses this page, render recipe page
     return render_template('recipe.html')
+
+@app.route("/suggestions", methods=["POST", "GET"])
+def suggestions():
+    pass	
 
 
 if __name__ == '__main__':

@@ -1,5 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Results Page</h1>
-    <p> {{results}} </p>
+    <h1>Recipe Results</h1>
+    {% for result in results %}
+        {% for key, value in result.items() %}
+            
+            {% if key == "Name" %}
+                <h3><b>{{key}} : {{value}}</b></h3>    
+            {% elif key == "Image" %}
+                <br/><img src="https://spoonacular.com/recipeImages/{{value}}" alt="" />
+            {% elif key == "Link" %}
+               <a href = "{{value}}"> View Recipe </a>         
+            {%elif key == "Recipe ID" %}
+            {% else %}
+                <h6><b>{{key}}</b> : {{value}}</h6>
+            {% endif %}
+        {% endfor %}
+    <br/>
+    {% endfor %}
 {% endblock content %}
+

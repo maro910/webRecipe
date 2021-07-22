@@ -4,12 +4,19 @@ body {
   margin-top: 5rem;
 }
 
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #FF8855;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -77,4 +84,11 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.left {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+  width: 50%;
 }

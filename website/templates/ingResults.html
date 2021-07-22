@@ -1,5 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1>Ingredients Results</h1>
-    {{usr}}
+    {% for ing in results %}
+        {% for key, value in ing.items() %}
+            
+            {% if key == "Image" %}
+                <img src="{{value}}" alt="" /> <br/>
+            {% elif key == "Title" %}
+                <h3><b>{{key}} : {{value}}</b></h3>
+            {%elif key == "Recipe ID" %}
+            {% elif key == "Link" %}
+                <a href = "{{value}}"> View Recipe </a>
+            {% elif key == "Missing Ingredients" %}
+                <h6>{{key}}:</h6> 
+                <ul>
+                    {% for i in value%}
+                        <li>{{i}}</li>
+                    {%endfor%}    
+                </ul>
+            {% elif key == "Used Ingredients" %}
+                <h6>{{key}}:</h6> 
+                <ul>
+                    {% for i in value%}
+                        <li>{{i}}</li>
+                    {%endfor%}    
+                </ul>  
+            {%else%}
+                <h6><b>{{key}}</b> : {{value}}</h6>
+            {% endif %}
+            
+                
+        {% endfor %}
+    <br/>
+    {% endfor %}
 {% endblock content %}
