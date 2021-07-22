@@ -1,5 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>{{ subtitle }}</h2>
-    <p>{{ text }}</p>
+    <form action="#" method="post">
+      <label for="ingredient">Enter ingredient</label><br>
+      <input type="text" class="ingredient" name="variable0"><br>
+      <input type="text" class="ingredient" name="variable1"><br>
+      <input type="text" class="ingredient" name="variable2"><br>
+      <input type="text" class="ingredient" name="variable3"><br>
+      <button type="button" value="add">Add ingredient</button>
+      <input type="submit" value="Submit">
+    </form>
 {% endblock content %}
