@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 # Authenication keys
 headers = {
-        'x-rapidapi-key': "835ea1863cmsh8ec245f12ad64bap187695jsn701aabefa0f1",
+        'x-rapidapi-key': "b28cffec83msh01f2949c69f1af9p16ee98jsnb1cc8145b207",
         'x-rapidapi-host': "webknox-recipes.p.rapidapi.com"
         }
 
@@ -27,6 +27,7 @@ headers = {
 @app.route("/")
 def home():
     return render_template('home.html', subtitle='Home Page', text='This is the home page')
+
 
 # About Page
 @app.route("/about")
@@ -55,7 +56,7 @@ def ingredient():
         
         # Makes API call, stores it into a dictionary, and parses the info we need
         results = api.parse_ingredient(requests.get(url, headers=headers, params=querystring).json())
-        
+        print(results)
         #If no results show up
         if results == []:
             return "There were no results for the ingredients you chose. Please ensure that your spelling/format is correct and try again"

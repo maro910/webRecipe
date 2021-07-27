@@ -4,7 +4,7 @@ import pandas as pd
 from similar_recip import similar
 
 headers = {
-        'x-rapidapi-key': "835ea1863cmsh8ec245f12ad64bap187695jsn701aabefa0f1",
+        'x-rapidapi-key': "b28cffec83msh01f2949c69f1af9p16ee98jsnb1cc8145b207",
         'x-rapidapi-host': "webknox-recipes.p.rapidapi.com"
         }
 
@@ -18,16 +18,15 @@ def make_df(data):
 # User can search for recipes which utilize the ingredients they enter in. 
 # Returns the Title, ID, image, and used/missing ingredients from the recipe.
 def search_by_ingredient():
-	url = "https://webknox-recipes.p.rapidapi.com/recipes/findByIngredients"
-	user_input = input("Please enter the ingredients you have, separated by a comma.\n")
-	querystring = {"ingredients":user_input,"number":"5"}
-	response = requests.request("GET", url, headers=headers, params=querystring)
-	results = parse_ingredient(response.json())
-	if results == []:
-		return ("There were no results for the ingredients you chose. Please ensure that your spelling/format is correct and try again")
-	#if the call was successful, return the results a dataframe
-	return (results)
-
+    url = "https://webknox-recipes.p.rapidapi.com/recipes/findByIngredients"
+    user_input = input("Please enter the ingredients you have, separated by a comma.\n")
+    querystring = {"ingredients":user_input,"number":"5"}
+    response = parse_ingredient(requests.get(url, headers=headers, params=querystring).json()) 
+    print(results)
+    if results == []:
+        return ("There were no results for the ingredients you chose. Please ensure that your spelling/format is correct and try again")
+    #if the call was successful, return the results a dataframe
+    return(results)
 
 #Parses the search results of a call to search_by_ingredient
 def parse_ingredient(file_name):
@@ -73,8 +72,7 @@ def search_by_recipe():
 	url = "https://webknox-recipes.p.rapidapi.com/recipes/search"
 	user_input = input("Please enter what you would like to make in order to find recipes\n")
 	querystring = {"query":user_input,"offset":"0","number":"10"}
-	response = requests.request("GET", url, headers=headers, params=querystring)
-	results = parse_recipe_search(response.json())
+	results = requests.request("GET", url, headers=headers, params=querystring)
 	if results == []:
 		return "There were no results for the keywords you entered. Please ensure that your spelling/format is correct and try again"
 	return (results)

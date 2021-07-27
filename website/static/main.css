@@ -4,12 +4,6 @@ body {
   margin-top: 5rem;
 }
 
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;

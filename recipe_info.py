@@ -1,15 +1,15 @@
-recipe_info = """{
-   "vegetarian":true,
-   "vegan":false,
-   "glutenFree":false,
-   "dairyFree":true,
-   "veryHealthy":false,
-   "cheap":false,
-   "veryPopular":true,
-   "sustainable":false,
+recipe_info = {
+   "vegetarian":True,
+   "vegan":False,
+   "glutenFree":False,
+   "dairyFree":True,
+   "veryHealthy":False,
+   "cheap":False,
+   "veryPopular":True,
+   "sustainable":False,
    "weightWatcherSmartPoints":8,
    "gaps":"no",
-   "lowFodmap":false,
+   "lowFodmap":False,
    "preparationMinutes":10,
    "cookingMinutes":15,
    "aggregateLikes":1005,
@@ -367,5 +367,5 @@ recipe_info = """{
          ]
       }
    ],
-   "originalId":null
-}"""
+   "originalId":None
+}
