@@ -1,7 +1,7 @@
 import requests
 #import json
 import pandas as pd
-from similar_recip import similar
+#from similar_recip import similar
 
 headers = {
         'x-rapidapi-key': "f888c871b1msh73f2e40214b8958p1399c0jsneedeb80a5574",
