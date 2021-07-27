@@ -1,10 +1,10 @@
 import requests
-import json
+#import json
 import pandas as pd
 from similar_recip import similar
 
 headers = {
-        'x-rapidapi-key': "b28cffec83msh01f2949c69f1af9p16ee98jsnb1cc8145b207",
+        'x-rapidapi-key': "f888c871b1msh73f2e40214b8958p1399c0jsneedeb80a5574",
         'x-rapidapi-host': "webknox-recipes.p.rapidapi.com"
         }
 
