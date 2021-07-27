@@ -8,7 +8,9 @@ Werkzeug==2.0.1
 Flask-WTF==0.15.1
 email_validator==1.1.3
 flask_behind_proxy==0.1.1
-flask_sqlalchemy
-pytest
+Flask-SQLAlchemy==2.5.1
+pytest==6.2.4
 pycodestyle
-
+pandas==1.1.5
+numpy==1.19.5
+requests==2.18.4
